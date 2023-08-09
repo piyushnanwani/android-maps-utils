@@ -113,11 +113,9 @@ subprojects { project ->
 
 
             mavenJava(MavenPublication) {
-                from components.release
-
                 groupId = 'com.github.piyushnanwani'
                 artifactId = 'android-maps-utils'
-                version = 'v3.5.2' // Use the version you released
+                version = 'v3.5.2.2' // Use the version you released
             }
         
 
@@ -195,7 +193,4 @@ subprojects { project ->
         // }
     }
 
-    signing {
-        sign publishing.publications.aar
-    }
 }
