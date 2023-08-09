@@ -25,7 +25,7 @@ import android.graphics.Color;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Random;
+import java.security.SecureRandom;
 
 import androidx.annotation.VisibleForTesting;
 
@@ -466,22 +466,23 @@ public class KmlStyle extends Style {
      *
      * @param color Color represented as an integer
      * @return Integer representing a random color
-     */
+     */    
     public static int computeRandomColor(int color) {
-        Random random = new Random();
+        SecureRandom secureRandom = new SecureRandom();
         int red = Color.red(color);
         int green = Color.green(color);
         int blue = Color.blue(color);
-        //Random number can only be computed in range [0, n)
+
         if (red != 0) {
-            red = random.nextInt(red);
+            red = secureRandom.nextInt(red + 1);
         }
         if (blue != 0) {
-            blue = random.nextInt(blue);
+            blue = secureRandom.nextInt(blue + 1);
         }
         if (green != 0) {
-            green = random.nextInt(green);
+            green = secureRandom.nextInt(green + 1);
         }
+
         return Color.rgb(red, green, blue);
     }
 
