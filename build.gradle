@@ -14,18 +14,6 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
-
-android {
-    compileSdkVersion 33
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 33
-    }
-    // ... Other Android configurations ...
-}
-
 buildscript {
     ext.kotlin_version = '1.7.20'
     repositories {
@@ -53,9 +41,9 @@ allprojects {
     }
 }
 
-//task clean(type: Delete) {
-//    delete rootProject.buildDir
-//}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
 
 ext.projectArtifactId = { project ->
     if (project.name == 'library') {
